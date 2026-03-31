@@ -1,0 +1,84 @@
+/* ============================================================
+   BASE.CSS — Design Tokens + Reset
+   منصة التعلم الذكية
+   ============================================================ */
+
+:root {
+  /* Colors */
+  --primary:     #6C3EFF;
+  --primary-l:   #8B5FFF;
+  --primary-d:   #4A1FCC;
+  --secondary:   #FF6B35;
+  --secondary-l: #FF8C5A;
+  --green:       #00D97E;
+  --yellow:      #FFD600;
+  --cyan:        #00C9FF;
+  --pink:        #FF4FA3;
+  --red:         #FF4757;
+
+  /* Backgrounds */
+  --bg:    #080C1E;
+  --bg2:   #0F1330;
+  --card:  #141832;
+  --card-h:#1B2044;
+  --glass:   rgba(255,255,255,0.04);
+  --glass-h: rgba(255,255,255,0.08);
+
+  /* Text */
+  --text:  #FFFFFF;
+  --text2: #B0B8D8;
+  --text3: #6B7A99;
+
+  /* Borders */
+  --border:   rgba(255,255,255,0.08);
+  --border-p: rgba(108,62,255,0.35);
+
+  /* Shadows */
+  --shadow: 0 8px 32px rgba(0,0,0,0.5);
+  --glow:   0 0 40px rgba(108,62,255,0.25);
+
+  /* Border Radius */
+  --r:  20px;
+  --rs: 12px;
+  --rx: 8px;
+}
+
+/* ── Reset ── */
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  font-family: 'Cairo', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+  overflow-x: hidden;
+  direction: rtl;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ── Scrollbar ── */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--bg); }
+::-webkit-scrollbar-thumb { background: var(--primary); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: var(--primary-l); }
+
+/* ── Base Elements ── */
+a   { text-decoration: none; color: inherit; }
+img { max-width: 100%; height: auto; }
+button  { cursor: pointer; font-family: 'Cairo', sans-serif; }
+input, textarea, select { font-family: 'Cairo', sans-serif; }
+
+/* ── Focus Visible ── */
+:focus-visible {
+  outline: 2px solid var(--primary-l);
+  outline-offset: 2px;
+}
