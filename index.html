@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, viewport-fit=cover"
+    />
+    <meta
+      name="description"
+      content="سجّل الدخول إلى منصة التعلم الذكية لطلاب الصف الخامس الابتدائي"
+    />
+    <title>تسجيل الدخول | منصة التعلم الذكية</title>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Icons -->
+    <link rel="dns-prefetch" href="https://unpkg.com" />
+    <script src="https://unpkg.com/@phosphor-icons/web@2.0.3" defer></script>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/base.css" />
+    <link rel="stylesheet" href="css/components.css" />
+    <link rel="stylesheet" href="css/animations.css" />
+    <link rel="stylesheet" href="css/pages/login.css" />
+  </head>
+  <body class="login-bg">
+    <div class="login-card">
+      <!-- Logo -->
+      <div class="login-logo">
+        <span class="login-logo-icon animate-pulse">🧠</span>
+        <div class="login-logo-text">منصة التعلم الذكية</div>
+        <div class="login-subtitle">الصف الخامس الابتدائي — العلوم</div>
+      </div>
+
+      <!-- Role Tabs -->
+      <div class="role-tabs">
+        <button class="role-tab active" id="role-student">
+          <i class="ph ph-student-fill"></i> بيانات المستخدم
+        </button>
+      </div>
+
+      <!-- Error Box -->
+      <div class="login-error" id="login-error"></div>
+
+      <!-- Form -->
+      <div class="form-group">
+        <label class="form-label" for="username-input">
+          <i class="ph ph-user-fill"></i> البريد الالكتروني
+        </label>
+        <input
+          class="form-input"
+          id="username-input"
+          type="text"
+          placeholder="أدخل البريد الالكتروني"
+          autocomplete="username"
+        />
+      </div>
+      <div class="form-group">
+        <label class="form-label" for="password-input">
+          <i class="ph ph-lock-fill"></i> كلمة المرور
+        </label>
+        <input
+          class="form-input"
+          id="password-input"
+          type="password"
+          placeholder="أدخل كلمة المرور"
+          autocomplete="current-password"
+        />
+      </div>
+
+      <button class="login-btn" id="login-btn">
+        <i class="ph ph-sign-in-fill"></i> تسجيل الدخول
+      </button>
+
+      <p
+        style="
+          text-align: center;
+          margin-top: 14px;
+          font-size: 13px;
+          color: var(--text2);
+        "
+      >
+        ليس لديك حساب؟
+        <a href="register.html" style="color: var(--primary-l)"
+          >أنشئ حساب طالب</a
+        >
+      </p>
+
+      <!-- Demo Accounts -->
+      <div class="demo-section">
+        <div class="demo-grid" id="demo-grid"></div>
+      </div>
+    </div>
+
+    <!-- JS (defer = non-blocking) -->
+    <script src="js/config.js" defer></script>
+    <script src="js/utils.js" defer></script>
+    <script src="js/data/users.js" defer></script>
+    <script src="js/services/auth.service.js" defer></script>
+    <script src="js/pages/login.js" defer></script>
+  </body>
+</html>

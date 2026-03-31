@@ -1,0 +1,207 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, viewport-fit=cover"
+    />
+    <meta name="description" content="الحصة الدراسية — منصة التعلم الذكية" />
+    <title>الحصة الدراسية | منصة التعلم الذكية</title>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Icons -->
+    <script src="https://unpkg.com/@phosphor-icons/web@2.0.3" defer></script>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/base.css" />
+    <link rel="stylesheet" href="css/components.css" />
+    <link rel="stylesheet" href="css/animations.css" />
+    <link rel="stylesheet" href="css/pages/session.css" />
+  </head>
+  <body class="page-bg">
+    <!-- NAV -->
+    <nav class="top-nav">
+      <div class="nav-logo">
+        <span class="nav-logo-icon">🧠</span>
+        <span class="nav-logo-text">منصة التعلم الذكية</span>
+      </div>
+      <div class="nav-center">
+        <span class="grade-badge" id="lesson-badge">
+          <i class="ph ph-lightning-fill"></i> الشغل والطاقة
+        </span>
+      </div>
+      <div class="nav-actions">
+        <div class="user-chip">
+          <span class="user-chip-avatar" id="nav-avatar">👦</span>
+          <span class="user-chip-name" id="nav-name">...</span>
+        </div>
+        <button class="btn-nav" onclick="window.location.href = 'home.html'">
+          <i class="ph ph-house-fill"></i> الرئيسية
+        </button>
+      </div>
+    </nav>
+
+    <!-- SESSION HEADER -->
+    <div class="session-header">
+      <button class="back-btn" onclick="window.location.href = 'home.html'">
+        <i class="ph ph-arrow-right"></i> الرئيسية
+      </button>
+      <div class="session-info">
+        <div class="session-breadcrumb" id="breadcrumb">
+          وحدة القوى والطاقة ← الدرس الأول
+        </div>
+        <div class="session-main-title">
+          <span id="session-icon">💪</span>
+          <span id="session-title">مفهوم الشغل</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- SESSIONS NAVIGATION -->
+    <div class="sessions-nav" id="sessions-nav"></div>
+
+    <!-- TABS -->
+    <div class="tabs-wrapper">
+      <div class="tabs">
+        <button
+          class="tab-btn active"
+          data-tab="objectives"
+          onclick="switchTab('objectives')"
+        >
+          <i class="ph ph-target-fill"></i> توقعات الأداء
+        </button>
+        <button
+          class="tab-btn"
+          data-tab="activities"
+          onclick="switchTab('activities')"
+        >
+          <i class="ph ph-flask-fill"></i> الأنشطة
+        </button>
+        <button class="tab-btn" data-tab="quiz" onclick="switchTab('quiz')">
+          <i class="ph ph-pencil-line-fill"></i> التقويم
+        </button>
+      </div>
+
+      <!-- ═══ OBJECTIVES ═══ -->
+      <div class="tab-content active" id="tab-objectives">
+        <div class="objectives-header">
+          <span class="obj-header-icon">🎯</span>
+          <div class="obj-header-text">
+            <h2>توقعات الأداء</h2>
+            <p>بنهاية هذه الحصة ستكون قادراً على تحقيق الأهداف التالية:</p>
+          </div>
+        </div>
+        <div class="objectives-list" id="objectives-list"></div>
+        <button class="obj-done-btn" onclick="switchTab('activities')">
+          <i class="ph ph-arrow-left-fill"></i> فهمت الأهداف — انتقل للأنشطة
+        </button>
+      </div>
+
+      <!-- ═══ ACTIVITIES ═══ -->
+      <div class="tab-content" id="tab-activities">
+        <div id="activities-container"></div>
+        <div class="activities-done-btn">
+          <button
+            class="obj-done-btn"
+            style="
+              background: linear-gradient(135deg, #ff6b35, #ff9a5a);
+              max-width: 400px;
+              margin: 0 auto;
+            "
+            onclick="switchTab('quiz')"
+          >
+            <i class="ph ph-pencil-line-fill"></i> أكملت الأنشطة — انتقل للتقويم
+          </button>
+        </div>
+      </div>
+
+      <!-- ═══ QUIZ ═══ -->
+      <div class="tab-content" id="tab-quiz">
+        <div class="quiz-header">
+          <span class="quiz-header-icon">🧠</span>
+          <div class="quiz-header-info">
+            <h3>اختبار الحصة</h3>
+            <p>أجب على جميع الأسئلة ثم اضغط "تسليم الاختبار"</p>
+          </div>
+          <div class="quiz-timer" id="quiz-timer-box">
+            <div class="quiz-timer-val" id="timer-display">10:00</div>
+            <div class="quiz-timer-lbl">الوقت المتبقي</div>
+          </div>
+        </div>
+        <div class="quiz-questions" id="quiz-questions"></div>
+        <button class="submit-quiz-btn" id="submit-quiz-btn">
+          <i class="ph ph-check-circle-fill"></i> تسليم الاختبار
+        </button>
+        <div class="quiz-result" id="quiz-result"></div>
+      </div>
+    </div>
+
+    <!-- CONFETTI CANVAS -->
+    <canvas id="confetti-canvas"></canvas>
+
+    <!-- CELEBRATION MODAL -->
+    <div class="celebration" id="celebration-modal">
+      <div class="cel-star">🏆</div>
+      <div class="cel-title">أحسنت! 🎉</div>
+      <div class="cel-score" id="cel-score-val" style="color: var(--green)">
+        100%
+      </div>
+      <div class="cel-sub" id="cel-sub-text">أداء رائع جداً!</div>
+      <button class="cel-btn" id="cel-close-btn">
+        <i class="ph ph-thumbs-up-fill"></i> رائع!
+      </button>
+    </div>
+
+    <!-- CHATBOT FAB -->
+    <button class="chatbot-fab" id="chatbot-fab" title="المساعد الذكي">
+      🤖
+    </button>
+
+    <!-- CHATBOT PANEL -->
+    <div class="chatbot-panel" id="chatbot-panel">
+      <div class="chatbot-header">
+        <div class="chatbot-avatar">
+          <i class="ph ph-robot-fill"></i>
+        </div>
+        <div class="chatbot-header-info">
+          <div class="chatbot-name">المساعد الذكي 🤖</div>
+          <div class="chatbot-status">● متصل الآن</div>
+        </div>
+        <button class="chatbot-close" id="chatbot-close">
+          <i class="ph ph-x"></i>
+        </button>
+      </div>
+      <div class="chatbot-messages" id="chatbot-messages"></div>
+      <div class="quick-replies" id="quick-replies"></div>
+      <div class="chatbot-input-wrap">
+        <button class="chatbot-send" id="send-btn" title="إرسال">
+          <i class="ph ph-paper-plane-tilt-fill"></i>
+        </button>
+        <input
+          class="chatbot-input"
+          id="chatbot-input"
+          placeholder="اكتب سؤالك هنا..."
+        />
+      </div>
+    </div>
+
+    <!-- JS (defer = non-blocking) -->
+    <script src="js/config.js" defer></script>
+    <script src="js/utils.js" defer></script>
+    <script src="js/data/users.js" defer></script>
+    <script src="js/data/lessons.js" defer></script>
+    <script src="js/data/chatbot-kb.js" defer></script>
+    <script src="js/services/auth.service.js" defer></script>
+    <script src="js/services/progress.service.js" defer></script>
+    <script src="js/services/chatbot.service.js" defer></script>
+    <script src="js/pages/session.js" defer></script>
+  </body>
+</html>

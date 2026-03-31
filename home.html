@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="description" content="لوحة تحكم الطالب — منصة التعلم الذكية">
+  <title>الصفحة الرئيسية | منصة التعلم الذكية</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&display=swap" rel="stylesheet">
+
+  <!-- Icons -->
+  <script src="https://unpkg.com/@phosphor-icons/web@2.0.3" defer></script>
+
+  <!-- CSS (base first, then components, then page-specific) -->
+  <link rel="preload" href="css/base.css"       as="style" onload="this.rel='stylesheet'">
+  <link rel="preload" href="css/components.css"  as="style" onload="this.rel='stylesheet'">
+  <noscript>
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/components.css">
+  </noscript>
+  <link rel="stylesheet" href="css/animations.css">
+  <link rel="stylesheet" href="css/pages/home.css">
+</head>
+<body class="page-bg">
+
+  <!-- NAV -->
+  <nav class="top-nav">
+    <div class="nav-logo">
+      <span class="nav-logo-icon">🧠</span>
+      <span class="nav-logo-text">منصة التعلم الذكية</span>
+    </div>
+    <div class="nav-center">
+      <span class="grade-badge">
+        <i class="ph ph-graduation-cap"></i>
+        الصف الخامس الابتدائي — العلوم
+      </span>
+    </div>
+    <div class="nav-actions">
+      <div class="user-chip">
+        <span class="user-chip-avatar" id="nav-avatar">👦</span>
+        <span class="user-chip-name"   id="nav-name">...</span>
+      </div>
+      <button class="btn-nav" id="logout-btn">
+        <i class="ph ph-sign-out"></i> خروج
+      </button>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <div class="hero-wrap">
+    <div class="welcome-text">
+      <h1>أهلاً، <span class="hi-name" id="welcome-name">...</span>! 🌟</h1>
+      <p>كل يوم تتعلم فيه هو يوم انتصار — هيا نكمل رحلتك! 🚀</p>
+      <div class="welcome-date">
+        <i class="ph ph-calendar-check" style="color:var(--primary-l)"></i>
+        <span id="welcome-date"></span>
+      </div>
+      <div class="hero-pills">
+        <div class="hero-pill hero-pill-streak">
+          <i class="ph ph-flame-fill hp-icon" style="color:var(--green)"></i>
+          <span class="hp-val" id="streak-val">1</span>
+          <span class="hp-lbl">يوم متواصل</span>
+        </div>
+        <div class="hero-pill hero-pill-score">
+          <i class="ph ph-star-fill hp-icon" style="color:var(--yellow)"></i>
+          <span class="hp-val" id="total-score-hero">0</span>
+          <span class="hp-lbl">نقطة</span>
+        </div>
+      </div>
+    </div>
+    <div class="mascot-wrap">
+      <div class="mascot-body"  id="mascot">🤖</div>
+      <div class="mascot-speech" id="mascot-speech">استعد للتعلم! 📚</div>
+    </div>
+  </div>
+
+  <!-- XP BAR -->
+  <div class="xp-section">
+    <div class="xp-card">
+      <div class="xp-top">
+        <div class="xp-level">
+          <div class="level-badge" id="level-num-badge">1</div>
+          <div class="level-info">
+            <div class="level-num" id="level-name-text">مبتدئ</div>
+            <div class="level-lbl">المستوى الحالي</div>
+          </div>
+        </div>
+        <div class="xp-nums">
+          <div class="current-xp"><span id="xp-current">0</span> XP</div>
+          <div class="max-xp">من <span id="xp-max">100</span></div>
+        </div>
+      </div>
+      <div class="xp-bar-wrap">
+        <div class="xp-bar-fill" id="xp-bar" style="width:0%">
+          <div class="xp-glow">⭐</div>
+        </div>
+      </div>
+      <div class="xp-milestones">
+        <div class="milestone" id="ms0">🌱<span>مبتدئ</span></div>
+        <div class="milestone" id="ms1">🔬<span>عالم</span></div>
+        <div class="milestone" id="ms2">🏆<span>بطل</span></div>
+        <div class="milestone" id="ms3">⭐<span>نجم</span></div>
+        <div class="milestone" id="ms4">🚀<span>عبقري</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- STATS -->
+  <div class="stats-row">
+    <div class="stat-tile animate-fadeup" style="animation-delay:.1s">
+      <div class="stat-tile-icon st-purple"><i class="ph ph-trophy-fill" style="font-size:24px"></i></div>
+      <div class="stat-tile-val" id="stat-score">0</div>
+      <div class="stat-tile-lbl">النقاط الكلية</div>
+    </div>
+    <div class="stat-tile animate-fadeup" style="animation-delay:.2s">
+      <div class="stat-tile-icon st-orange"><i class="ph ph-books-fill" style="font-size:24px"></i></div>
+      <div class="stat-tile-val" id="stat-sessions">0/12</div>
+      <div class="stat-tile-lbl">الحصص المكتملة</div>
+    </div>
+    <div class="stat-tile animate-fadeup" style="animation-delay:.3s">
+      <div class="stat-tile-icon st-green"><i class="ph ph-chart-line-up-fill" style="font-size:24px"></i></div>
+      <div class="stat-tile-val" id="stat-progress">0%</div>
+      <div class="stat-tile-lbl">نسبة الإنجاز</div>
+    </div>
+    <div class="stat-tile animate-fadeup" style="animation-delay:.4s">
+      <div class="stat-tile-icon st-yellow"><i class="ph ph-star-four-fill" style="font-size:24px"></i></div>
+      <div class="stat-tile-val" id="stat-streak">1</div>
+      <div class="stat-tile-lbl">أيام متتالية</div>
+    </div>
+  </div>
+
+  <!-- LESSONS -->
+  <div class="lessons-wrap">
+    <div class="lessons-header">
+      <h2 class="section-title" style="margin-bottom:0">
+        <i class="ph ph-books" style="color:var(--primary-l);margin-left:8px"></i>
+        دروس الوحدة
+      </h2>
+    </div>
+    <div class="lessons-grid" id="lessons-grid"></div>
+  </div>
+
+  <!-- ACHIEVEMENTS -->
+  <div class="achievements-wrap">
+    <div class="lessons-header">
+      <h2 class="section-title" style="margin-bottom:0">
+        <i class="ph ph-medal-fill" style="color:var(--yellow);margin-left:8px"></i>
+        الإنجازات
+      </h2>
+    </div>
+    <div class="achievements-grid" id="achievements-grid"></div>
+  </div>
+
+  <!-- JS (defer = non-blocking) -->
+  <script>
+    // Logout button — available immediately
+    document.getElementById('logout-btn')?.addEventListener('click', () => {
+      sessionStorage.removeItem('currentUser');
+      window.location.href = 'index.html';
+    });
+  </script>
+  <script src="js/config.js"                  defer></script>
+  <script src="js/utils.js"                   defer></script>
+  <script src="js/data/users.js"              defer></script>
+  <script src="js/data/lessons.js"            defer></script>
+  <script src="js/services/auth.service.js"   defer></script>
+  <script src="js/services/progress.service.js" defer></script>
+  <script src="js/pages/home.js"              defer></script>
+</body>
+</html>
