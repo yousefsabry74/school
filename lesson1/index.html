@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>الشغل والطاقة - الصف الخامس الابتدائي</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Top Navigation Bar -->
+    <nav class="top-nav">
+        <div class="nav-left">
+            <div class="logo">
+                <span class="logo-icon">⚡</span>
+                <span class="logo-text">منصة القوى والطاقة</span>
+            </div>
+        </div>
+        <div class="nav-center">
+            <span class="grade-badge">🎓 الصف الخامس الابتدائي</span>
+        </div>
+        <div class="nav-right">
+            <button class="nav-btn dashboard-btn" onclick="goToDashboard()">
+                <span>📊</span> لوحة التحكم
+            </button>
+            <div class="student-avatar">
+                <img src="https://api.dicebear.com/7.x/fun-emoji/svg?seed=student" alt="طالب" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+                <span class="avatar-fallback" style="display:none;">👤</span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-bg-shapes">
+            <div class="shape shape-1"></div>
+            <div class="shape shape-2"></div>
+            <div class="shape shape-3"></div>
+            <div class="shape shape-4"></div>
+        </div>
+
+        <div class="hero-breadcrumb">
+            <span class="breadcrumb-item">🏠 الرئيسية</span>
+            <span class="breadcrumb-sep">›</span>
+            <span class="breadcrumb-item">وحدة القوى والطاقة</span>
+            <span class="breadcrumb-sep">›</span>
+            <span class="breadcrumb-item active">الدرس الأول</span>
+        </div>
+
+        <div class="hero-content">
+            <div class="lesson-number-badge">الدرس الأول</div>
+            <h1 class="hero-title">
+                <span class="title-icon">⚡</span>
+                الشغل والطاقة
+            </h1>
+            <p class="hero-subtitle">اكتشف معنا أسرار الطاقة وكيف يحدث الشغل في حياتنا اليومية!</p>
+
+            <div class="hero-stats">
+                <div class="stat-card">
+                    <span class="stat-icon">📚</span>
+                    <span class="stat-number">3</span>
+                    <span class="stat-label">حصص</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-icon">🎯</span>
+                    <span class="stat-number">9</span>
+                    <span class="stat-label">أهداف تعليمية</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-icon">❓</span>
+                    <span class="stat-number">15</span>
+                    <span class="stat-label">سؤال تفاعلي</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-icon">🏆</span>
+                    <span class="stat-number">300</span>
+                    <span class="stat-label">نقطة</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="hero-image-container">
+            <div class="floating-image">
+                <div class="energy-animation">
+                    <div class="bolt bolt-1">⚡</div>
+                    <div class="bolt bolt-2">🔋</div>
+                    <div class="bolt bolt-3">💡</div>
+                    <div class="center-icon">⚙️</div>
+                    <div class="orbit orbit-1"></div>
+                    <div class="orbit orbit-2"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Progress Bar -->
+    <div class="progress-section">
+        <div class="progress-container">
+            <div class="progress-info">
+                <span class="progress-label">تقدمك في هذا الدرس</span>
+                <span class="progress-percent">0%</span>
+            </div>
+            <div class="progress-bar-wrapper">
+                <div class="progress-bar-fill" style="width: 0%"></div>
+            </div>
+            <div class="progress-sessions">
+                <span class="session-dot inactive">●</span>
+                <span class="session-dot inactive">●</span>
+                <span class="session-dot inactive">●</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Sessions Section -->
+    <section class="sessions-section">
+        <div class="section-header">
+            <h2 class="section-title">📖 حصص الدرس</h2>
+            <p class="section-subtitle">اختر الحصة التي تريد دراستها</p>
+        </div>
+
+        <div class="sessions-grid">
+
+            <!-- Session 1 -->
+            <div class="session-card" onclick="openSession(1)">
+                <div class="card-glow"></div>
+                <div class="card-top">
+                    <div class="session-badge">الحصة الأولى</div>
+                    <div class="session-status unlocked">🔓 متاحة</div>
+                </div>
+                <div class="card-icon-area">
+                    <div class="icon-circle icon-circle-1">
+                        <span class="big-icon">💪</span>
+                    </div>
+                    <div class="icon-particles">
+                        <span class="particle">✨</span>
+                        <span class="particle">⭐</span>
+                        <span class="particle">💫</span>
+                    </div>
+                </div>
+                <div class="card-content">
+                    <h3 class="card-title">مفهوم الشغل</h3>
+                    <p class="card-desc">تعرّف على معنى الشغل في العلوم، ومتى يُعدّ الشخص منجزًا للشغل؟ وما الفرق بين الشغل العلمي والشغل في الحياة اليومية!</p>
+                    <div class="card-topics">
+                        <span class="topic-tag">🔬 تعريف الشغل</span>
+                        <span class="topic-tag">📐 قانون الشغل</span>
+                        <span class="topic-tag">⚖️ وحدة القياس</span>
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <div class="card-meta">
+                        <span class="meta-item">⏱️ 45 دقيقة</span>
+                        <span class="meta-item">🌟 100 نقطة</span>
+                    </div>
+                    <button class="start-btn">
+                        ابدأ الحصة <span class="btn-arrow">←</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Session 2 -->
+            <div class="session-card locked" onclick="openSession(2)">
+                <div class="card-glow glow-2"></div>
+                <div class="card-top">
+                    <div class="session-badge badge-2">الحصة الثانية</div>
+                    <div class="session-status locked-status">🔒 مقفلة</div>
+                </div>
+                <div class="card-icon-area">
+                    <div class="icon-circle icon-circle-2">
+                        <span class="big-icon">⚡</span>
+                    </div>
+                    <div class="icon-particles">
+                        <span class="particle">🔥</span>
+                        <span class="particle">⚡</span>
+                        <span class="particle">💥</span>
+                    </div>
+                </div>
+                <div class="card-content">
+                    <h3 class="card-title">أشكال الطاقة</h3>
+                    <p class="card-desc">اكتشف الأنواع المختلفة للطاقة من حولنا! الطاقة الحرارية والضوئية والكيميائية والكهربائية وكيف تتحوّل من شكل لآخر.</p>
+                    <div class="card-topics">
+                        <span class="topic-tag">🌡️ طاقة حرارية</span>
+                        <span class="topic-tag">☀️ طاقة ضوئية</span>
+                        <span class="topic-tag">🔋 طاقة كيميائية</span>
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <div class="card-meta">
+                        <span class="meta-item">⏱️ 45 دقيقة</span>
+                        <span class="meta-item">🌟 100 نقطة</span>
+                    </div>
+                    <button class="start-btn btn-locked" disabled>
+                        🔒 أكمل الحصة الأولى أولاً
+                    </button>
+                </div>
+            </div>
+
+            <!-- Session 3 -->
+            <div class="session-card locked" onclick="openSession(3)">
+                <div class="card-glow glow-3"></div>
+                <div class="card-top">
+                    <div class="session-badge badge-3">الحصة الثالثة</div>
+                    <div class="session-status locked-status">🔒 مقفلة</div>
+                </div>
+                <div class="card-icon-area">
+                    <div class="icon-circle icon-circle-3">
+                        <span class="big-icon">🔄</span>
+                    </div>
+                    <div class="icon-particles">
+                        <span class="particle">🌿</span>
+                        <span class="particle">♻️</span>
+                        <span class="particle">💚</span>
+                    </div>
+                </div>
+                <div class="card-content">
+                    <h3 class="card-title">تحوّل الطاقة وحفظها</h3>
+                    <p class="card-desc">تعلّم كيف تتحوّل الطاقة من شكل إلى آخر وقانون حفظ الطاقة - الطاقة لا تُخلق ولا تُفنى!</p>
+                    <div class="card-topics">
+                        <span class="topic-tag">🔄 تحوّل الطاقة</span>
+                        <span class="topic-tag">📊 حفظ الطاقة</span>
+                        <span class="topic-tag">🌱 طاقة متجددة</span>
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <div class="card-meta">
+                        <span class="meta-item">⏱️ 45 دقيقة</span>
+                        <span class="meta-item">🌟 100 نقطة</span>
+                    </div>
+                    <button class="start-btn btn-locked" disabled>
+                        🔒 أكمل الحصة الثانية أولاً
+                    </button>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Lesson Objectives -->
+    <section class="objectives-section">
+        <div class="section-header">
+            <h2 class="section-title">🎯 أهداف الدرس</h2>
+        </div>
+        <div class="objectives-grid">
+            <div class="objective-card">
+                <div class="obj-icon">📝</div>
+                <p>تعريف مفهوم الشغل وإعطاء أمثلة من الحياة اليومية</p>
+            </div>
+            <div class="objective-card">
+                <div class="obj-icon">🧮</div>
+                <p>حساب مقدار الشغل باستخدام القانون الرياضي</p>
+            </div>
+            <div class="objective-card">
+                <div class="obj-icon">⚡</div>
+                <p>التمييز بين أشكال الطاقة المختلفة</p>
+            </div>
+            <div class="objective-card">
+                <div class="obj-icon">🔄</div>
+                <p>شرح كيفية تحوّل الطاقة من شكل لآخر</p>
+            </div>
+            <div class="objective-card">
+                <div class="obj-icon">⚖️</div>
+                <p>فهم قانون حفظ الطاقة وتطبيقاته</p>
+            </div>
+            <div class="objective-card">
+                <div class="obj-icon">🌍</div>
+                <p>ربط مفاهيم الطاقة بالبيئة والحياة اليومية</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quick Quiz Preview -->
+    <section class="quiz-preview">
+        <div class="quiz-card">
+            <div class="quiz-icon">🧠</div>
+            <div class="quiz-content">
+                <h3>هل أنت مستعد للتحدي؟</h3>
+                <p>اختبر معلوماتك بعد كل حصة واجمع النقاط! 🏆</p>
+            </div>
+            <button class="quiz-btn">ابدأ التحدي ⚡</button>
+        </div>
+    </section>
+
+    <!-- Session Modal -->
+    <div class="modal-overlay" id="sessionModal">
+        <div class="modal">
+            <button class="modal-close" onclick="closeModal()">✕</button>
+            <div class="modal-header">
+                <div class="modal-icon">💪</div>
+                <h2 class="modal-title" id="modalTitle">مفهوم الشغل - الحصة الأولى</h2>
+            </div>
+            <div class="modal-body" id="modalBody">
+                <!-- Dynamic content -->
+            </div>
+            <div class="modal-actions">
+                <button class="modal-start-btn" onclick="startLesson()">🚀 ابدأ الحصة الآن!</button>
+                <button class="modal-cancel-btn" onclick="closeModal()">ليس الآن</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Dashboard Modal -->
+    <div class="modal-overlay" id="dashboardModal">
+        <div class="modal dashboard-modal">
+            <button class="modal-close" onclick="closeDashboard()">✕</button>
+            <div class="dashboard-header">
+                <h2>📊 لوحة التحكم</h2>
+                <span class="dashboard-subtitle">تتبّع تقدمك الدراسي</span>
+            </div>
+            <div class="dashboard-content">
+                <div class="dashboard-stats">
+                    <div class="dash-stat-card">
+                        <div class="dash-stat-icon">🏆</div>
+                        <div class="dash-stat-value">0</div>
+                        <div class="dash-stat-label">النقاط الكلية</div>
+                    </div>
+                    <div class="dash-stat-card">
+                        <div class="dash-stat-icon">📚</div>
+                        <div class="dash-stat-value">0/3</div>
+                        <div class="dash-stat-label">الحصص المكتملة</div>
+                    </div>
+                    <div class="dash-stat-card">
+                        <div class="dash-stat-icon">⏱️</div>
+                        <div class="dash-stat-value">0 د</div>
+                        <div class="dash-stat-label">وقت الدراسة</div>
+                    </div>
+                    <div class="dash-stat-card">
+                        <div class="dash-stat-icon">🎯</div>
+                        <div class="dash-stat-value">0%</div>
+                        <div class="dash-stat-label">نسبة الإنجاز</div>
+                    </div>
+                </div>
+                <div class="lessons-overview">
+                    <h3>📖 الدروس الأربعة</h3>
+                    <div class="lesson-list">
+                        <div class="lesson-item active-lesson">
+                            <span class="lesson-num">1</span>
+                            <span class="lesson-name">⚡ الشغل والطاقة</span>
+                            <span class="lesson-progress-badge">0%</span>
+                            <span class="lesson-sessions">3 حصص</span>
+                        </div>
+                        <div class="lesson-item">
+                            <span class="lesson-num">2</span>
+                            <span class="lesson-name">⚙️ الآلات البسيطة</span>
+                            <span class="lesson-progress-badge locked-badge">🔒</span>
+                            <span class="lesson-sessions">4 حصص</span>
+                        </div>
+                        <div class="lesson-item">
+                            <span class="lesson-num">3</span>
+                            <span class="lesson-name">🔊 الصوت</span>
+                            <span class="lesson-progress-badge locked-badge">🔒</span>
+                            <span class="lesson-sessions">3 حصص</span>
+                        </div>
+                        <div class="lesson-item">
+                            <span class="lesson-num">4</span>
+                            <span class="lesson-name">💡 الضوء</span>
+                            <span class="lesson-progress-badge locked-badge">🔒</span>
+                            <span class="lesson-sessions">4 حصص</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="achievements-section">
+                    <h3>🏅 الإنجازات</h3>
+                    <div class="achievements-grid">
+                        <div class="achievement locked-achievement">
+                            <div class="ach-icon">⚡</div>
+                            <div class="ach-name">طالب نشيط</div>
+                        </div>
+                        <div class="achievement locked-achievement">
+                            <div class="ach-icon">🔥</div>
+                            <div class="ach-name">متعلم متميز</div>
+                        </div>
+                        <div class="achievement locked-achievement">
+                            <div class="ach-icon">🏆</div>
+                            <div class="ach-name">بطل العلوم</div>
+                        </div>
+                        <div class="achievement locked-achievement">
+                            <div class="ach-icon">🌟</div>
+                            <div class="ach-name">نجم الفصل</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
